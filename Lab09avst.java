@@ -31,6 +31,18 @@ public class Lab09avst
 
 class Rational
 {
+	int num, den, gcf;
+	public Rational(int numer, int denom){
+		num=numer;
+		den=denom;
+	}
+	public int getNum(){return num;}
+	public int getDen(){return den;}
+	public double getDecimal()
+	{
+		double quotient = (double)getNum()/getDen();
+		return quotient;
+	}
 
 	public void displayData()
 	{
