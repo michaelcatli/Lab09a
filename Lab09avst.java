@@ -31,13 +31,15 @@ public class Lab09avst
 
 class Rational
 {
-	int num, den, gcf;
+	int reducedNum, reducedDen, firstNum, firstDen, gcf;
 	public Rational(int numer, int denom){
-		num=numer;
-		den=denom;
+		firstNum=numer;
+		firstDen=denom;
+		reducedNum=reduce(firstNum);
+		reducedDen=reduce(firstDen);
 	}
-	public int getNum(){return num;}
-	public int getDen(){return den;}
+	public int getNum(){return firstNum;}
+	public int getDen(){return firstDen;}
 	public double getDecimal()
 	{
 		double quotient = (double)getNum()/getDen();
@@ -47,8 +49,9 @@ class Rational
 	public void displayData()
 	{
 		System.out.println();
-		System.out.println(getNum() + "/" + getDen() + " equals " + getDecimal());
+		System.out.println(getOriginal() + " equals " + getDecimal());
 		System.out.println();
+		System.out.println("and reduces to " + getReduced());
 	}
 
 	private void getGCF(int n1,int n2)
@@ -66,5 +69,16 @@ class Rational
 			}
 		}
 		while (rem != 0);
+	}
+	private void reduce(int n1){
+		getGCF(firstNum, firstDen);
+	}
+	public int getReduced(){
+		String redfrac = "" + reduce(firstNum) + "/" + reduce(firstDen);
+		return redfrac;
+	}
+	public String getOriginal(){
+		String fraction = "" + getNum() + "/" + getDen();
+		return fraction;
 	}
 }
