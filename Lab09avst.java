@@ -37,7 +37,7 @@ class Rational
 		firstDen=denom;
 		reduce();
 		reducedNum=firstNum/gcf;
-		redcuedDen=firstDen/gcf;
+		reducedDen=firstDen/gcf;
 	}
 	public int getNum(){return firstNum;}
 	public int getDen(){return firstDen;}
