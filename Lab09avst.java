@@ -35,8 +35,9 @@ class Rational
 	public Rational(int numer, int denom){
 		firstNum=numer;
 		firstDen=denom;
-		reducedNum=reduce(firstNum);
-		reducedDen=reduce(firstDen);
+		reduce();
+		reducedNum=firstNum/gcf;
+		redcuedDen=firstDen/gcf;
 	}
 	public int getNum(){return firstNum;}
 	public int getDen(){return firstDen;}
@@ -70,11 +71,12 @@ class Rational
 		}
 		while (rem != 0);
 	}
-	private void reduce(int n1){
+	private void reduce(){
 		getGCF(firstNum, firstDen);
 	}
-	public int getReduced(){
-		String redfrac = "" + reduce(firstNum) + "/" + reduce(firstDen);
+	public String getReduced(){
+		reduce();
+		String redfrac = "" + reducedNum + "/" + reducedDen;
 		return redfrac;
 	}
 	public String getOriginal(){
